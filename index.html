@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>4×4 Memory Game — Quiz Theme</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card-shell" aria-live="polite">
+    <div class="row">
+      <div class="pill" id="status">Not started</div>
+      <div class="pill" id="uid-pill">ID: —</div>
+      <div class="pill" id="moves">Moves: 0</div>
+    </div>
+    <h1>4×4 Memory Game</h1>
+    <p class="desc">Enter your Student ID to begin. Each resolved pair (two flips) is logged with timestamp and whether it was a match. The CSV downloads automatically when you finish.</p>
+
+    <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+
+    <!-- START -->
+    <section class="start" id="start">
+      <div class="field">
+        <input id="studentId" type="text" placeholder="Enter Student ID (e.g., 12345)" autocomplete="off" />
+        <button class="primary" id="begin" type="button">Start</button>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="board-wrap" style="display:none">
+      <div id="game-board">
+        <!-- 16 cards (kept from your original structure) -->
+        <div class="card" data-image="img1.png"  data-match="1" id="card1"></div>
+        <div class="card" data-image="img2.png"  data-match="1" id="card2"></div>
+        <div class="card" data-image="img3.png"  data-match="2" id="card3"></div>
+        <div class="card" data-image="img4.png"  data-match="2" id="card4"></div>
+        <div class="card" data-image="img5.png"  data-match="3" id="card5"></div>
+        <div class="card" data-image="img6.png"  data-match="3" id="card6"></div>
+        <div class="card" data-image="img7.png"  data-match="4" id="card7"></div>
+        <div class="card" data-image="img8.png"  data-match="4" id="card8"></div>
+        <div class="card" data-image="img9.png"  data-match="5" id="card9"></div>
+        <div class="card" data-image="img10.png" data-match="5" id="card10"></div>
+        <div class="card" data-image="img11.png" data-match="6" id="card11"></div>
+        <div class="card" data-image="img12.png" data-match="6" id="card12"></div>
+        <div class="card" data-image="img13.png" data-match="7" id="card13"></div>
+        <div class="card" data-image="img14.png" data-match="7" id="card14"></div>
+        <div class="card" data-image="img15.png" data-match="8" id="card15"></div>
+        <div class="card" data-image="img16.png" data-match="8" id="card16"></div>
+      </div>
+      <div class="btns" style="margin-top:10px">
+        <button class="secondary" id="restart" type="button">Restart</button>
+        <button class="primary" id="downloadBtn" type="button">Download Log</button>
+      </div>
+    </section>
+
+    <!-- END -->
+    <section class="end" id="end" style="display:none">
+      <h2>Nice! All matched. 🎉</h2>
+      <p class="muted" id="summary"></p>
+      <div class="btns" style="justify-content:center">
+        <button class="primary" id="playAgain" type="button">Play Again</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
